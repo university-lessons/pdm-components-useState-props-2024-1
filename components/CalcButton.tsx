@@ -1,15 +1,16 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
 type CalcButtonProps = {
   value: string;
+  onPress?: (value: string) => void;
 };
 
-export default function CalcButton({ value }: CalcButtonProps) {
+export default function CalcButton({ value, onPress }: CalcButtonProps) {
   return (
-    <View style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={() => onPress(value)}>
       <Text style={styles.text}>{value}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
